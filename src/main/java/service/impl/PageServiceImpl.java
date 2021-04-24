@@ -14,7 +14,7 @@ public class PageServiceImpl implements PageService {
 
     @Override
     public Page getPage(String url) {
-        return pageDownloader.getPage(url);
+        return pageDownloader.getPageByUrl(url);
     }
 
     @Override

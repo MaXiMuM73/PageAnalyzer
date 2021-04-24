@@ -18,9 +18,53 @@ public class PageDownloaderImpl implements PageDownloader {
     private static Document htmlPage;
     private static Page page;
 
-    public Page getPage(String url) {
-        connect(url);
+    @Override
+    public Page getPageByUrl(String url) {
+        connectToUrl(url);
         return page;
+    }
+
+    @Override
+    public Page getPageByFile(File file) {
+        connectToFile(file);
+        return page;
+    }
+
+    private void connectToUrl(String url) {
+        try {
+            logger.info("Connecting to a page: " + url + ".");
+            htmlPage = Jsoup.connect(url).maxBodySize(0).userAgent("Chrome").get();
+            generatePage();
+        } catch (IllegalArgumentException exception) {
+            logger.error("URL's incorrect. Please, Check the page URL. For example: https://www.yandex.ru.");
+        } catch (UnknownHostException unknownHostException) {
+            logger.error("Internet connection unavailable.", unknownHostException);
+        }
+        catch (IOException ioException){
+            logger.error("Page loading error.", ioException);
+        }
+    }
+
+    private void connectToFile(File file) {
+        logger.info("Connecting to a page: " + file.getPath() + ".");
+        try {
+            htmlPage = Jsoup.parse(file, null);
+            generatePage();
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        }
+    }
+
+    private void generatePage() {
+        page = new Page();
+        String pageName = htmlPage.title()
+                .replaceAll("['/:*?\"<>|]","_");
+        page.setPageName(pageName);
+        page.setUrl(htmlPage.location());
+        ArrayList<String> words = getWordsFromPage();
+        Map<String, Integer> wordsStatistics = getMapOfWordsFromWords(words);
+        page.setWords(wordsStatistics);
+        logger.info("Page loaded.");
     }
 
     public boolean savePageOnHDD() {
@@ -35,29 +79,6 @@ public class PageDownloaderImpl implements PageDownloader {
         } catch (IOException ioException) {
             logger.error("Page not saved.", ioException);
             return false;
-        }
-    }
-
-    private void connect(String url) {
-        try {
-            logger.info("Connecting to a page: " + url + ".");
-            htmlPage = Jsoup.connect(url).maxBodySize(0).userAgent("Chrome").get();
-            String pageName = htmlPage.title()
-                    .replaceAll("['/:*?\"<>|]","_");
-            page = new Page();
-            page.setPageName(pageName);
-            page.setUrl(url);
-            ArrayList<String> words = getWordsFromPage();
-            Map<String, Integer> wordsStatistics = getMapOfWordsFromWords(words);
-            page.setWords(wordsStatistics);
-            logger.info("Page loaded.");
-        } catch (IllegalArgumentException exception) {
-            logger.error("URL's incorrect. Please, Check the page URL. For example: https://www.yandex.ru.");
-        } catch (UnknownHostException unknownHostException) {
-            logger.error("Internet connection unavailable.", unknownHostException);
-        }
-        catch (IOException ioException){
-            logger.error("Page loading error.", ioException);
         }
     }
 

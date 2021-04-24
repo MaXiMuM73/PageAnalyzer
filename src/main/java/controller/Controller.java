@@ -53,11 +53,11 @@ public class Controller {
 
     private static void mainMenu() {
         System.out.println("\nPlease, select an action:");
-        System.out.println("1 - Get statistics and save html page to folder /pages");
+        System.out.println("1 - Download HTML page statistics and save the page to your hard drive");
         System.out.println("2 - Show statistics in the console");
         System.out.println("3 - Save statistics to the database");
-        System.out.println("4 - Print pages in database");
-        System.out.println("5 - Print words in database");
+        System.out.println("4 - Display pages in database");
+        System.out.println("5 - Display words in database");
         System.out.println("6 - Delete page from database by ID");
         System.out.println("7 - Exit");
         System.out.print("Your choice: ");

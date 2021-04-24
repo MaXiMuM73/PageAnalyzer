@@ -2,6 +2,9 @@ package service;
 
 import model.Page;
 
+import java.io.File;
+
 public interface PageDownloader {
-    Page getPage(String url);
+    Page getPageByUrl(String url);
+    Page getPageByFile(File file);
 }

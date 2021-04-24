@@ -31,13 +31,6 @@ public class Page extends BaseModel {
         this.url = url;
     }
 
-    @Override
-    public String toString() {
-        return "Page{id=" + super.getId() +
-                ", url='" + url + '\'' +
-                ", PageName='" + pageName + "'}";
-    }
-
     /**
      * Displays the word statistics of the received page in the console
      */
@@ -47,6 +40,13 @@ public class Page extends BaseModel {
             Integer value = pair.getValue();
             System.out.println(key + " - " + value);
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Page{id=" + super.getId() +
+                ", url='" + url + '\'' +
+                ", PageName='" + pageName + "'}";
     }
 }
 
