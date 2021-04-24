@@ -23,7 +23,6 @@ public class PageDAOImpl implements PageDAO {
     private Statement statement;
     private PreparedStatement preparedStatement;
 
-
     public PageDAOImpl(String dbUrl) {
         this.dbUrl = dbUrl;
         getConnection();

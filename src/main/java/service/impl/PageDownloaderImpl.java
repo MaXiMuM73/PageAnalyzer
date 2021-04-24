@@ -32,6 +32,7 @@ public class PageDownloaderImpl implements PageDownloader {
 
     private void connectToUrl(String url) {
         try {
+            page = null;
             logger.info("Connecting to a page: " + url + ".");
             htmlPage = Jsoup.connect(url).maxBodySize(0).userAgent("Chrome").get();
             generatePage();
@@ -46,6 +47,7 @@ public class PageDownloaderImpl implements PageDownloader {
     }
 
     private void connectToFile(File file) {
+        page = null;
         logger.info("Connecting to a page: " + file.getPath() + ".");
         try {
             htmlPage = Jsoup.parse(file, null);
