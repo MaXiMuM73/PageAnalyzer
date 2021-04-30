@@ -41,9 +41,6 @@ public class PageDAOImplTest {
     @Test
     public void createPage() {
         pageDAO.create(page);
-        pageDAO.create(page);
-        pageDAO.create(page);
-        pageDAO.create(page);
     }
 
     @Test

@@ -29,6 +29,11 @@ ___
 
 `after entering the ID, the page and statistics will be deleted from the database`
 ___
-7 Exit
+7 Download large HTML page statistics and save the page to your hard drive
+
+`a page of any size will be loaded, unique word statistics will be displayed 
+in the console, and the page, words, and statistics will be saved in the /files directory`
+___
+8 Exit
 
 `exit the app`

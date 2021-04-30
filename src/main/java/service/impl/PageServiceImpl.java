@@ -41,4 +41,9 @@ public class PageServiceImpl implements PageService {
     public boolean deleteById(Long id) {
         return pageDAO.deleteById(id);
     }
+
+    @Override
+    public boolean saveLargePageByUrl(String url) {
+        return pageDownloader.saveLargePageByUrl(url);
+    }
 }

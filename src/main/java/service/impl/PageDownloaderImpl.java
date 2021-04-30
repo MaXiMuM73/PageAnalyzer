@@ -30,6 +30,11 @@ public class PageDownloaderImpl implements PageDownloader {
         return page;
     }
 
+    @Override
+    public boolean saveLargePageByUrl(String url) {
+        return LargePageDownloader.downloadPageByUrlAndSaveStatistics(url);
+    }
+
     private void connectToUrl(String url) {
         try {
             page = null;

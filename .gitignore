@@ -23,6 +23,7 @@
 .idea/**
 target/**
 pages/
+files/
 
 # Files
 MyListSpring.iml

@@ -44,4 +44,11 @@ public interface PageService {
      * @return true if the page deleted successfully; false if the page is not saved
      */
     boolean deleteById(Long id);
+
+    /**
+     * Save large page to /files directory
+     * @param url {@link Page}
+     * @return true if the page and statistics is saved successfully; false if not saved
+     */
+    boolean saveLargePageByUrl(String url);
 }

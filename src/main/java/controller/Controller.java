@@ -18,7 +18,7 @@ public class Controller {
         System.out.println("Welcome to Page Analyzer!");
         mainMenu();
         String userIn = "";
-        while (!userIn.equals("7")) {
+        while (!userIn.equals("8")) {
             userIn = scanner.nextLine();
             switch (userIn) {
                 case "1":
@@ -42,6 +42,9 @@ public class Controller {
                 case "7":
                     variantSeven();
                     break;
+                case "8":
+                    variantEight();
+                    break;
                 default:
                     System.out.println("Incorrect choice");
                     System.out.println("Please, choose the action:");
@@ -53,13 +56,16 @@ public class Controller {
 
     private static void mainMenu() {
         System.out.println("\nPlease, select an action:");
-        System.out.println("1 - Download HTML page statistics and save the page to your hard drive");
+        System.out.println("1 - Download HTML page statistics and save the page to your hard drive" +
+                "\n(storing the received data in RAM and save the page in the /pages folder)");
         System.out.println("2 - Show statistics in the console");
         System.out.println("3 - Save statistics to the database");
         System.out.println("4 - Display pages in database");
         System.out.println("5 - Display words in database");
         System.out.println("6 - Delete page from database by ID");
-        System.out.println("7 - Exit");
+        System.out.println("7 - Download large HTML page statistics and save the page to your hard drive. \nYou can load a page of any size" +
+                "(save the page and statistics to files in the /files folder)");
+        System.out.println("8 - Exit");
         System.out.print("Your choice: ");
     }
 
@@ -124,6 +130,15 @@ public class Controller {
     }
 
     private static void variantSeven() {
+        System.out.println("Example: https://devcolibri.com/");
+        System.out.print("Enter URL ->>> ");
+        String url = scanner.nextLine();
+        logger.info("Request URL - " + url + ".");
+        if (service.saveLargePageByUrl(url)) logger.info("Save completed. Check the /files folder.");
+        mainMenu();
+    }
+
+    private static void variantEight() {
         logger.info("Page Analyzer closed.");
         System.exit(0);
     }
