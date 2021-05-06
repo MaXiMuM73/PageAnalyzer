@@ -61,7 +61,6 @@ public class PageParserImpl implements PageParser {
 
     private Document connectToUrl(String url) {
         try {
-            //page = null;
             logger.info("Connecting to a page: " + url + ".");
             return Jsoup.connect(url).maxBodySize(0).userAgent("Chrome").get();
         } catch (IllegalArgumentException illegalArgumentException) {

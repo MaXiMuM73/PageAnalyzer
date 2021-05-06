@@ -14,12 +14,6 @@ public interface PageService {
     Page getPage(String url);
 
     /**
-     * Saves the page to the current directory
-     * @return true if the page saved successfully; false if the page not saved
-     */
-//    boolean saveToHDD();
-
-    /**
      * Save page in database {@link Page page}
      * @param page {@link Page}
      * @return true if the page is saved successfully; false if the page is not saved

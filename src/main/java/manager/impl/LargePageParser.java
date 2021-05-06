@@ -216,17 +216,6 @@ public class LargePageParser {
     }
 
     private void writeWordsInLineToFile(BufferedWriter writer, StringBuilder lines) {
-//        String text;
-//        text = Jsoup.parse(String.valueOf(linesWithTeg), "test").text();
-//        if (!text.equals("") & !text.equals("\uFEFF")) {
-//            ArrayList<String> words = new ArrayList<>(Arrays.asList(text.split("[ ,.!?:;'#/()–—‑{}«»\"-]")));
-//            words.removeIf(s -> s.equals(""));
-//            for (String s : words) {
-//                writer.write(s + "\n");
-//                writer.flush();
-//            }
-//            words.clear();
-//        }
         parseLines(lines).forEach(s -> {
             try {
                 writer.write(s + "\n");

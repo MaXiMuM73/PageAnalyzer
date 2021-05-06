@@ -25,6 +25,7 @@ public class Page extends BaseModel {
     private Map<String, Integer> words = new LinkedHashMap<>();
 
     public Page() {}
+
     public Page(Long id, String pageName, String url) {
         super.setId(id);
         this.pageName = pageName;
