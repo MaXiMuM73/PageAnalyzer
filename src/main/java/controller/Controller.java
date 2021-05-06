@@ -70,7 +70,7 @@ public class Controller {
     }
 
     private static void variantOne() {
-        System.out.println("Example: https://devcolibri.com/");
+        System.out.println("Example: https://www.simbirsoft.com/");
         System.out.print("Enter URL ->>> ");
         String url = scanner.nextLine();
         logger.info("Request URL - " + url + ".");
@@ -130,7 +130,7 @@ public class Controller {
     }
 
     private static void variantSeven() {
-        System.out.println("Example: https://devcolibri.com/");
+        System.out.println("Example: https://www.simbirsoft.com/");
         System.out.print("Enter URL ->>> ");
         String url = scanner.nextLine();
         logger.info("Request URL - " + url + ".");

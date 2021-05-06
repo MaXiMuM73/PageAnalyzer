@@ -29,7 +29,7 @@ public class PageParserImpl implements PageParser {
     public Page getPageByUrl(String url) {
         Document htmlPage = connectToUrl(url);
         Page page = createPage(htmlPage);
-        save(page, htmlPage);
+        if (htmlPage != null) save(page, htmlPage);
         return page;
     }
 

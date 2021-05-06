@@ -109,7 +109,7 @@ public class LargePageParser {
             largePageParser.print(statistics);
             return true;
         } catch (MalformedURLException malformedURLException) {
-            logger.error("URL's incorrect. Please, Check the page URL. For example: https://www.yandex.ru.",
+            logger.error("URL's incorrect. Please, Check the page URL. For example: https://www.simbirsoft.com/.",
                     malformedURLException);
             return false;
         } catch (UnknownHostException unknownHostException) {
