@@ -17,7 +17,7 @@ public interface PageService {
      * Saves the page to the current directory
      * @return true if the page saved successfully; false if the page not saved
      */
-    boolean saveToHDD();
+//    boolean saveToHDD();
 
     /**
      * Save page in database {@link Page page}

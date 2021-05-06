@@ -57,14 +57,14 @@ public class Controller {
     private static void mainMenu() {
         System.out.println("\nPlease, select an action:");
         System.out.println("1 - Download HTML page statistics and save the page to your hard drive" +
-                "\n(storing the received data in RAM and save the page in the /pages folder)");
+                "\n (storing the received data in RAM and save the page in the /pages folder)");
         System.out.println("2 - Show statistics in the console");
         System.out.println("3 - Save statistics to the database");
         System.out.println("4 - Display pages in database");
         System.out.println("5 - Display words in database");
         System.out.println("6 - Delete page from database by ID");
         System.out.println("7 - Download large HTML page statistics and save the page to your hard drive. \nYou can load a page of any size" +
-                "(save the page and statistics to files in the /files folder)");
+                " (save the page and statistics to files in the /files folder)");
         System.out.println("8 - Exit");
         System.out.print("Your choice: ");
     }
@@ -75,7 +75,7 @@ public class Controller {
         String url = scanner.nextLine();
         logger.info("Request URL - " + url + ".");
         page = service.getPage(url);
-        service.saveToHDD();
+        //service.saveToHDD();
         mainMenu();
     }
 

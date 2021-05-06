@@ -22,8 +22,11 @@
 # Folders
 .idea/**
 target/**
-pages/
-files/
+files/**
+pages/**
+
+
+
 
 # Files
 MyListSpring.iml

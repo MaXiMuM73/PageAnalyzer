@@ -2,24 +2,21 @@ package service.impl;
 
 import dao.PageDAO;
 import dao.PageDAOImpl;
+import manager.PageParser;
+import manager.impl.PageParserImpl;
 import model.Page;
 import service.PageService;
 
 import java.util.*;
 
 public class PageServiceImpl implements PageService {
-    private static final PageDownloaderImpl pageDownloader = new PageDownloaderImpl();
+    private static final PageParser pageParser = new PageParserImpl();
     private static final String DB_URL = "jdbc:h2:./db";
     private static final PageDAO pageDAO = new PageDAOImpl(DB_URL);
 
     @Override
     public Page getPage(String url) {
-        return pageDownloader.getPageByUrl(url);
-    }
-
-    @Override
-    public boolean saveToHDD() {
-        return pageDownloader.savePageOnHDD();
+        return pageParser.getPageByUrl(url);
     }
 
     @Override
@@ -44,6 +41,6 @@ public class PageServiceImpl implements PageService {
 
     @Override
     public boolean saveLargePageByUrl(String url) {
-        return pageDownloader.saveLargePageByUrl(url);
+        return pageParser.saveToFiles(url);
     }
 }

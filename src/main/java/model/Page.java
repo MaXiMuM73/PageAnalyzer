@@ -48,4 +48,24 @@ public class Page extends BaseModel {
                 ", url='" + url + '\'' +
                 ", PageName='" + pageName + "'}";
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+
+        Page page = (Page) o;
+
+        if (!url.equals(page.url)) return false;
+        return pageName.equals(page.pageName);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = super.hashCode();
+        result = 31 * result + url.hashCode();
+        result = 31 * result + pageName.hashCode();
+        return result;
+    }
 }
