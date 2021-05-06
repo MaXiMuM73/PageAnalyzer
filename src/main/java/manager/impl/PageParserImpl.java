@@ -82,7 +82,7 @@ public class PageParserImpl implements PageParser {
         logger.info("Connecting to a page: " + file.getPath() + ".");
         try {
             Document htmlPage = Jsoup.parse(file, null);
-            createPage(htmlPage);
+            //createPage(htmlPage);
             return htmlPage;
         } catch (IOException ioException) {
             ioException.printStackTrace();

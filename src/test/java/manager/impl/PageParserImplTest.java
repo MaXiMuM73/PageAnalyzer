@@ -33,6 +33,12 @@ public class PageParserImplTest {
         assertEquals(pageExpected, pageActual);
     }
 
+    @Test
+    public void givenIncorrectUrl_whenGetPageByUrl_thenThrowIllegalArgumentException() {
+        assertNotNull(pageParser.getPageByUrl("123"));
+        assertNotNull(pageParser.getPageByUrl(null));
+    }
+
     public static void deleteFiles(File folder) {
         if (folder.isDirectory()) {
             File[] list = folder.listFiles();
